@@ -79,15 +79,26 @@
                         <h3>Custom, actionable metrics so you attract the right person and live happily every after</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                            </li>
+                            <div>
+                                <h3> Sign up for our email list to get more information </h3>
+                                <form method="POST" class="email-signup">{% csrf_token %}
+                                    {% for field in form %}
+                                            {{ field.errors }}
+                                            {{ field }}
+                                            {% if field.help_text %}
+                                                <p class="help">{{ field.help_text|safe }}</p>
+                                            {% endif %}
+                                    {% endfor %}
+                                    <button type="submit" class="save btn btn-default">Save</button>
+                                </form>
+
+                                {% if messages %}
+                                    <div class="messages">
+                                        {% for message in messages %}
+                                        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
                         </ul>
                     </div>
                 </div>
