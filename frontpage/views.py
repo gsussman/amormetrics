@@ -16,3 +16,15 @@ def home(request):
     else:
     	form = EmailSignupForm()
     	return render(request, 'frontpage/home.html', {'form': form})
+
+def hiw(request):
+
+    if request.method == "POST":
+        form = EmailSignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thank you for signing up! We will let you know when we offically launch!') 
+        return HttpResponseRedirect('/')
+    else:
+        form = EmailSignupForm()
+        return render(request, 'frontpage/hiw.html', {'form': form})
