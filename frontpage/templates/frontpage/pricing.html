@@ -42,6 +42,149 @@
         window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
           heap.load("616961255");
     </script>
+    
+    <style type="text/css">
+        /***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+/***
+Content
+***/
+.content {
+    padding: 30px 0;
+}
+
+/***
+Pricing table
+***/
+.pricing {
+  position: relative;
+  margin-bottom: 15px;
+  border: 3px solid #eee;
+}
+
+.pricing-active {
+  border: 3px solid #36d7ac;
+  margin-top: -10px;
+  box-shadow: 7px 7px rgba(54, 215, 172, 0.2);
+}
+
+.pricing:hover {
+  border: 3px solid #36d7ac;
+}
+
+.pricing:hover h4 {
+  color: #36d7ac;
+}
+
+.pricing-head {
+  text-align: center;
+}
+
+.pricing-head h3,
+.pricing-head h4 {
+  margin: 0;
+  line-height: normal;
+}
+
+.pricing-head h3 span,
+.pricing-head h4 span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.pricing-head h3 {
+  font-weight: 300;
+  color: #fafafa;
+  padding: 12px 0;
+  font-size: 27px;
+  background: #36d7ac;
+  border-bottom: solid 1px #41b91c;
+}
+
+.pricing-head h4 {
+  color: #bac39f;
+  padding: 5px 0;
+  font-size: 54px;
+  font-weight: 300;
+  background: #fbfef2;
+  border-bottom: solid 1px #f5f9e7;
+}
+
+.pricing-head-active h4 {
+  color: #36d7ac;
+}
+
+.pricing-head h4 i {
+  top: -8px;
+  font-size: 28px;
+  font-style: normal;
+  position: relative;
+}
+
+.pricing-head h4 span {
+  top: -10px;
+  font-size: 14px;
+  font-style: normal;
+  position: relative;
+}
+
+/*Pricing Content*/
+.pricing-content li {
+  color: #888;
+  font-size: 12px;
+  padding: 7px 15px;
+  border-bottom: solid 1px #f5f9e7;
+}
+
+/*Pricing Footer*/
+.pricing-footer {
+  color: #777;
+  font-size: 11px;
+  line-height: 17px;
+  text-align: center;
+  padding: 0 20px 19px;
+}
+
+/*Priceing Active*/
+.price-active,
+.pricing:hover {
+  z-index: 9;
+}
+
+.price-active h4 {
+  color: #36d7ac;
+}
+
+.no-space-pricing .pricing:hover {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.no-space-pricing .price-active .pricing-head h4,
+.no-space-pricing .pricing:hover .pricing-head h4 {
+  color: #36d7ac;
+  padding: 15px 0;
+  font-size: 80px;
+  transition: color 0.5s ease-in-out;
+}
+
+.yellow-crusta.btn {
+  color: #FFFFFF;
+  background-color: #f3c200;
+}
+.yellow-crusta.btn:hover,
+.yellow-crusta.btn:focus,
+.yellow-crusta.btn:active,
+.yellow-crusta.btn.active {
+    color: #FFFFFF;
+    background-color: #cfa500;
+}
+    </style>
 </head>
 
 <body>
@@ -80,118 +223,165 @@
 
 
     <!-- Header -->
-    <a name="about"></a>
-    <div class="intro-header">
-        <div class="container">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>Does Your Dating Profile Work?</h1>
-                        <h3>Custom, actionable metrics so you attract the right person and live happily every after</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <div>
-                                <h3> Sign up for our email list to get more information </h3>
-                                <form method="POST" class="email-signup">{% csrf_token %}
-                                    {% for field in form %}
-                                            {{ field.errors }}
-                                            {{ field }}
-                                            {% if field.help_text %}
-                                                <p class="help">{{ field.help_text|safe }}</p>
-                                            {% endif %}
-                                    {% endfor %}
-                                    <button type="submit" class="save btn btn-default">Save</button>
-                                </form>
-
-                                {% if messages %}
-                                    <div class="messages">
-                                        {% for message in messages %}
-                                        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.intro-header -->
-
-    <!-- Page Content -->
-
-	<a  name="services"></a>
-    <div class="content-section-a">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Products need testing &mdash; In online dating, your profile is the product</h2>
-                    <p class="lead">Every other part of your life is data-driven. Why isn’t your profile? Let’s take the guesswork out. We generate a statistical analysis of your profile to unlock what works for you.</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="{% static 'img/ipad.png' %}" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
     <!-- /.content-section-a -->
 
     <div class="content-section-b">
 
-        <div class="container">
+<div class="container content">
+	<div class="row">
+		<!-- Pricing -->
+		<div class="col-md-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Attract<span></span></h3>
+					<h4><i>$</i>50</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						<strong>50 person sample size</strong>
+					</li>
+					<li>
+						1 Demographic Filter
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						
+					</li>
+					<li>
+						
+					</li>
 
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Data driven, because everything should be.</h2>
-                    <p class="lead">This isn’t a generic report of the dos and don’t of dating. You upload your pictures and we have a statistically significant review to find what works best with what demographics. </p>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="{% static 'img/dog.png' %}" alt="">
-                </div>
-            </div>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<a href="javascript:;" class="btn yellow-crusta">
+					Sign Up
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Match<span> </span>
+					</h3>
+					<h4><i>$</i>90<i></i>
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						<b>100 person sample size</b>
+					</li>
+					<li>
+						2 Demographic Filters
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+						
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
 
-        </div>
+					</p>
+					<a href="javascript:;" class="btn yellow-crusta">
+					Sign Up
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="pricing pricing-active hover-effect">
+				<div class="pricing-head pricing-head-active">
+					<h3>Connect<span>
+					Most Popular </span>
+					</h3>
+					<h4><i>$</i>140<i></i>
+
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						250 person sample size
+					</li>
+					<li>
+						3 Demographic Filters
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+						
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<a href="javascript:;" class="btn yellow-crusta">
+					Sign Up
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Happily Ever After<span></span>
+					</h3>
+					<h4><i>$</i>225<i></i>
+
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						500 person sample size
+					</li>
+					<li>
+						5 Demographic Filters
+					</li>
+					<li>
+						Custom  Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+						1 Request for Custom Data Analysis
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<a href="javascript:;" class="btn yellow-crusta">
+					Sign Up
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--//End Pricing -->
+	</div>
+</div>
         <!-- /.container -->
 
     </div>
     <!-- /.content-section-b -->
 
-    <div class="content-section-a">
 
-        <div class="container">
 
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Results by the weekend.</h2>
-                    <p class="lead">We have a 72-hour turnaround so you can optimize your profile ASAP, and find your happily ever after.</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="{% static 'img/phones.png' %}" alt="">
-                </div>
-            </div>
 
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-	<a  name="contact"></a>
-    <div class="banner">
+  <!--  <div class="banner">
 
         <div class="container">
 
@@ -225,9 +415,9 @@
             </div>
 
         </div>
-        <!-- /.container -->
 
-    </div>
+</div>
+    </div>-->
     <!-- /.banner -->
 
     <!-- Footer -->
