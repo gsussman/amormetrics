@@ -1,0 +1,447 @@
+{% extends 'frontpage/base.html' %}
+{% load widget_tweaks %}
+
+{% block head %}
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+
+
+    <style type="text/css">
+        /***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+/***
+Content
+***/
+.content {
+    padding: 30px 0;
+}
+
+/***
+Pricing table
+***/
+.pricing {
+  position: relative;
+  margin-bottom: 15px;
+  border: 3px solid #eee;
+}
+
+.pricing-active {
+  border: 3px solid #36d7ac;
+  margin-top: -10px;
+  box-shadow: 7px 7px rgba(54, 215, 172, 0.2);
+}
+
+.pricing:hover {
+  border: 3px solid #36d7ac;
+}
+
+.pricing:hover h4 {
+  color: #36d7ac;
+}
+
+.pricing-head {
+  text-align: center;
+}
+
+.pricing-head h3,
+.pricing-head h4 {
+  margin: 0;
+  line-height: normal;
+}
+
+.pricing-head h3 span,
+.pricing-head h4 span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.pricing-head h3 {
+  font-weight: 300;
+  color: #fafafa;
+  padding: 12px 0;
+  font-size: 27px;
+  background: #36d7ac;
+  border-bottom: solid 1px #41b91c;
+}
+
+.pricing-head h4 {
+  color: #bac39f;
+  padding: 5px 0;
+  font-size: 54px;
+  font-weight: 300;
+  background: #fbfef2;
+  border-bottom: solid 1px #f5f9e7;
+}
+
+.pricing-head-active h4 {
+  color: #36d7ac;
+}
+
+.pricing-head h4 i {
+  top: -8px;
+  font-size: 28px;
+  font-style: normal;
+  position: relative;
+}
+
+.pricing-head h4 span {
+  top: -10px;
+  font-size: 14px;
+  font-style: normal;
+  position: relative;
+}
+
+/*Pricing Content*/
+.pricing-content li {
+  color: #888;
+  font-size: 12px;
+  padding: 7px 15px;
+  border-bottom: solid 1px #f5f9e7;
+}
+
+/*Pricing Footer*/
+.pricing-footer {
+  color: #777;
+  font-size: 11px;
+  line-height: 17px;
+  text-align: center;
+  padding: 0 20px 19px;
+}
+
+/*Priceing Active*/
+.price-active,
+.pricing:hover {
+  z-index: 9;
+}
+
+.price-active h4 {
+  color: #36d7ac;
+}
+
+.no-space-pricing .pricing:hover {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.no-space-pricing .price-active .pricing-head h4,
+.no-space-pricing .pricing:hover .pricing-head h4 {
+  color: #36d7ac;
+  padding: 15px 0;
+  font-size: 80px;
+  transition: color 0.5s ease-in-out;
+}
+
+.yellow-crusta.btn {
+  color: #FFFFFF;
+  background-color: #f3c200;
+}
+.yellow-crusta.btn:hover,
+.yellow-crusta.btn:focus,
+.yellow-crusta.btn:active,
+.yellow-crusta.btn.active {
+    color: #FFFFFF;
+    background-color: #cfa500;
+}
+    </style>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container" style="margin-top: 100px;">
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+  {% endfor %}
+
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+      {% for error in form.non_field_errors %}
+        {{ error }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+
+      {% if form.is_bound %}
+        {% if field.errors %}
+          {% render_field field class="form-control is-invalid" %}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      {% else %}
+        {% render_field field class="form-control" %}
+      {% endif %}
+
+      {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+  {% endfor %}
+  
+        <p></p>Please select your demographic preferences below. Depending on which package you choose, we will ensure that we have enough respondents with the qualities you are looking, and will make sure we let you know what they specifically think about you!</p>
+    <div class="form-group">
+    <label for="exampleFormControlInput2">I am interested in:</label>
+  <select name="gender" class="selectpicker form-control" data-live-search="false" data-dropup-auto="false" multiple default="Choose Gender">
+        <option>Men</option>
+        <option>Women</option>
+      </select>
+      </div>     
+      
+          <div class="form-group">
+    <label for="age">Age Range</label>
+  <select name="age" class="selectpicker form-control" data-live-search="false" data-dropup-auto="false" multiple default="Choose Age">
+        <option>18-25</option>
+        <option>26-30</option>
+        <option>31-35</option>
+        <option>36-40</option>
+        <option>41-45</option>
+        <option>46-50</option>
+        <option>51-55</option>
+        <option>56-60</option>
+        <option>61-65</option>
+        <option>66-70</option>
+        <option>71-75</option>
+        <option>No Preference</option>
+      </select>
+      </div> 
+
+          <div class="form-group">
+    <label for="ethnicity">Ethnicity</label>
+  <select name="ethnicity" class="selectpicker form-control" data-live-search="false" data-dropup-auto="false" multiple default="Choose Ethnicity">
+<option>Asian</option>
+<option>Black</option>
+<option>Hispanic/Latin</option>
+<option>Indian</option>
+<option>Middle Eastern</option>
+<option>Native American</option>
+<option>Pacific Islander</option>
+<option>White</option>
+      </select>
+      </div> 
+
+          <div class="form-group">
+    <label for="religion">Religion</label>
+  <select name="religion" class="selectpicker form-control" data-live-search="false" data-dropup-auto="false" multiple default="Choose Religious Preferences">
+<option>Agnostic</option>
+<option>Atheist</option>
+<option>Buddhist</option>
+<option>Catholic</option>
+<option>Christian</option>
+<option>Hindu</option>
+<option>Jewish</option>
+<option>Muslim</option>
+<option>Sikh</option>
+      </select>
+      </div> 
+
+          <div class="form-group">
+    <label for="schoollevel">Education Level Completed</label>
+  <select name="schoollevel" class="selectpicker form-control" data-live-search="false" data-dropup-auto="false" multiple default="Choose Education Level">
+        <option>High School</option>
+        <option>College</option>
+        <option>Graduate School</option>
+        <option>No Preference</option>
+      </select>
+      </div> 
+
+          <div class="form-group">
+    <label for="income">Income Level</label>
+  <select name="income" class="selectpicker form-control" data-live-search="false" data-dropup-auto="false" multiple default="Choose Income Level">
+<option>Less than $25,000</option>
+<option>$25,000 to $34,999</option>
+<option>$35,000 to $49,999</option>
+<option>$50,000 to $74,999</option>
+<option>$75,000 to $99,999</option>
+<option>$100,000 to $149,999</option>
+<option>$150,000 to $199,999</option>
+<option>$200,000 or more</option>
+      </select>
+      </div> 
+
+<div class="container content">
+	<div class="row">
+		<!-- Pricing -->
+		<div class="col-md-3 col-sm-3 col-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Attract<span></span></h3>
+					<h4><i>$</i>50</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						<strong>50 person sample size</strong>
+					</li>
+					<li>
+						1 Demographic Filter
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						
+					</li>
+					<li>
+						
+					</li>
+										<li>
+					
+					</li>
+										<li>
+					
+					</li>
+
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<label>
+					<input id="attractcheck" name="package" type="radio" value="attract" class="custom-control-input">
+					<span class="custom-control-description">Choose Package</span></label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-3 col-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Match<span> </span>
+					</h3>
+					<h4><i>$</i>90<i></i>
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						<b>100 person sample size</b>
+					</li>
+					<li>
+						2 Demographic Filters
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+					
+					</li>
+										<li>
+					
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+
+					</p>
+					<label><input id="matchcheck" name="package" type="radio" value="match" class="custom-control-input">
+					<span class="custom-control-description">Choose Package</span></label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-3 col-3">
+			<div id="connect-higher" class="pricing hover-effect">
+				<div id="connect-lower" class="pricing-head">
+					<h3>Connect<span>
+					Most Popular </span>
+					</h3>
+					<h4><i>$</i>140<i></i>
+
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						250 person sample size
+					</li>
+					<li>
+						3 Demographic Filters
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+						
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<label><input id="connectcheck" name="package" type="radio" value="connect" class="custom-control-input">
+					<span class="custom-control-description">Choose Package</span></label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-3 col-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Happily Ever After<span></span>
+					</h3>
+					<h4><i>$</i>225<i></i>
+
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						500 person sample size
+					</li>
+					<li>
+						5 Demographic Filters
+					</li>
+					<li>
+						Custom  Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+						1 Request for Custom Data Analysis
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<label><input id="heacheck" name="package" type="radio" value="hea" class="custom-control-input">
+					<span class="custom-control-description">Choose Package</span></label>
+				</div>
+			</div>
+		</div>
+		<!--//End Pricing -->
+	</div>
+</div>  
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+  
+<input type="hidden" id="track" value={{ request.session.package }}>
+<script type="text/javascript">
+document.getElementById("track")
+document.getElementById("{{ request.session.package }}check").checked = true;
+</script>
+{% endblock %}
+
+{% block close %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+{% endblock %}

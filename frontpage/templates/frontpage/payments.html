@@ -1,0 +1,338 @@
+{% extends 'frontpage/base.html' %}
+{% load widget_tweaks %}
+
+{% block head %}
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+
+
+    <style type="text/css">
+        /***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+/***
+Content
+***/
+.content {
+    padding: 30px 0;
+}
+
+/***
+Pricing table
+***/
+.pricing {
+  position: relative;
+  margin-bottom: 15px;
+  border: 3px solid #eee;
+}
+
+.pricing-active {
+  border: 3px solid #36d7ac;
+  margin-top: -10px;
+  box-shadow: 7px 7px rgba(54, 215, 172, 0.2);
+}
+
+.pricing:hover {
+  border: 3px solid #36d7ac;
+}
+
+.pricing:hover h4 {
+  color: #36d7ac;
+}
+
+.pricing-head {
+  text-align: center;
+}
+
+.pricing-head h3,
+.pricing-head h4 {
+  margin: 0;
+  line-height: normal;
+}
+
+.pricing-head h3 span,
+.pricing-head h4 span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.pricing-head h3 {
+  font-weight: 300;
+  color: #fafafa;
+  padding: 12px 0;
+  font-size: 27px;
+  background: #36d7ac;
+  border-bottom: solid 1px #41b91c;
+}
+
+.pricing-head h4 {
+  color: #bac39f;
+  padding: 5px 0;
+  font-size: 54px;
+  font-weight: 300;
+  background: #fbfef2;
+  border-bottom: solid 1px #f5f9e7;
+}
+
+.pricing-head-active h4 {
+  color: #36d7ac;
+}
+
+.pricing-head h4 i {
+  top: -8px;
+  font-size: 28px;
+  font-style: normal;
+  position: relative;
+}
+
+.pricing-head h4 span {
+  top: -10px;
+  font-size: 14px;
+  font-style: normal;
+  position: relative;
+}
+
+/*Pricing Content*/
+.pricing-content li {
+  color: #888;
+  font-size: 12px;
+  padding: 7px 15px;
+  border-bottom: solid 1px #f5f9e7;
+}
+
+/*Pricing Footer*/
+.pricing-footer {
+  color: #777;
+  font-size: 11px;
+  line-height: 17px;
+  text-align: center;
+  padding: 0 20px 19px;
+}
+
+/*Priceing Active*/
+.price-active,
+.pricing:hover {
+  z-index: 9;
+}
+
+.price-active h4 {
+  color: #36d7ac;
+}
+
+.no-space-pricing .pricing:hover {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.no-space-pricing .price-active .pricing-head h4,
+.no-space-pricing .pricing:hover .pricing-head h4 {
+  color: #36d7ac;
+  padding: 15px 0;
+  font-size: 80px;
+  transition: color 0.5s ease-in-out;
+}
+
+.yellow-crusta.btn {
+  color: #FFFFFF;
+  background-color: #f3c200;
+}
+.yellow-crusta.btn:hover,
+.yellow-crusta.btn:focus,
+.yellow-crusta.btn:active,
+.yellow-crusta.btn.active {
+    color: #FFFFFF;
+    background-color: #cfa500;
+}
+    </style>
+{% endblock %}
+
+{% block content %}
+
+
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+
+<div class="container content">
+	<div class="row">
+		<!-- Pricing -->
+		<div class="col-md-3 col-sm-3 col-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Attract<span></span></h3>
+					<h4><i>$</i>50</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						<strong>50 person sample size</strong>
+					</li>
+					<li>
+						1 Demographic Filter
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						
+					</li>
+					<li>
+						
+					</li>
+
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<a href="/uploads/form/?id=attract" class="btn yellow-crusta">
+					Sign Up
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-3 col-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Match<span> </span>
+					</h3>
+					<h4><i>$</i>90<i></i>
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						<b>100 person sample size</b>
+					</li>
+					<li>
+						2 Demographic Filters
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+						
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+
+					</p>
+					<a href="/uploads/form/?id=match" class="btn yellow-crusta">
+					Sign Up
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-3 col-3">
+			<div id="connect-higher" class="pricing pricing-active hover-effect">
+				<div id="connect-lower" class="pricing-head pricing-head-active">
+					<h3>Connect<span>
+					Most Popular </span>
+					</h3>
+					<h4><i>$</i>140<i></i>
+
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						250 person sample size
+					</li>
+					<li>
+						3 Demographic Filters
+					</li>
+					<li>
+						Custom Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+						
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<a href="/uploads/form/?id=connect" class="btn yellow-crusta">
+					Sign Up
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-3 col-3">
+			<div class="pricing hover-effect">
+				<div class="pricing-head">
+					<h3>Happily Ever After<span></span>
+					</h3>
+					<h4><i>$</i>225<i></i>
+
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					<li>
+						500 person sample size
+					</li>
+					<li>
+						5 Demographic Filters
+					</li>
+					<li>
+						Custom  Report in 72 Hours
+					</li>
+					<li>
+						Receive the Raw Data
+					</li>
+					<li>
+						1 Request for Custom Data Analysis
+					</li>
+				</ul>
+				<div class="pricing-footer">
+					<p>
+					</p>
+					<a href="/uploads/form/?id=hea" class="btn yellow-crusta">
+					Sign Up
+					</a>
+				</div>
+			</div>
+		</div>
+
+	
+<form action="/your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_d68lOBOnDOSVBr0426vCcZLw"
+    {% if request.session.package == 'attract' %} data-amount="5000" 
+    {% elif request.session.package == 'match' %} data-amount="9000" 
+    {% elif request.session.package == 'connect' %} data-amount="14000" 
+    {% elif request.session.package == 'hea' %} data-amount="22500"
+    {% endif %}
+    data-name="SparkScientific"
+    {% if request.session.package == 'attract' %}     data-description="Attract"
+    {% elif request.session.package == 'match' %}     data-description="Match"
+    {% elif request.session.package == 'connect' %}   data-description="Connect"
+    {% elif request.session.package == 'hea' %}     data-description="Happily Ever After"
+    {% endif %}
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+</form>
+		
+		<!--//End Pricing -->
+	</div>
+</div>  
+  
+<input type="hidden" id="track" value={{ request.session.package }}><div>{{ request.session.package }}</div>
+<script type="text/javascript">
+document.getElementById("track")
+</script>
+{% endblock %}
+
+{% block close %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+{% endblock %}

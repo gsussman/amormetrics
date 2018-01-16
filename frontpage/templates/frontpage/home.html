@@ -92,18 +92,8 @@
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <div>
-                                <h3> Sign up for our email list to get more information </h3>
-                                <form method="POST" class="email-signup">{% csrf_token %}
-                                    {% for field in form %}
-                                            {{ field.errors }}
-                                            {{ field }}
-                                            {% if field.help_text %}
-                                                <p class="help">{{ field.help_text|safe }}</p>
-                                            {% endif %}
-                                    {% endfor %}
-                                    <button type="submit" class="save btn btn-default">Save</button>
-                                </form>
-
+                                <h3>  </h3>
+<a href="/uploads/form/" class="btn btn-success btn-lg" role="button" aria-disabled="true" style='margin-top: 25px;'>Get Started Now!</a>
                                 {% if messages %}
                                     <div class="messages">
                                         {% for message in messages %}
@@ -202,16 +192,7 @@
                 <div class="col-lg-6">
                                             <ul class="list-inline intro-social-buttons">
                             <div>
-                                <form method="POST" class="email-signup">{% csrf_token %}
-                                    {% for field in form %}
-                                            {{ field.errors }}
-                                            {{ field }}
-                                            {% if field.help_text %}
-                                                <p class="help">{{ field.help_text|safe }}</p>
-                                            {% endif %}
-                                    {% endfor %}
-                                    <button type="submit" class="save btn btn-default">Save</button>
-                                </form>
+<a href="/uploads/form/" class="btn btn-success btn-lg" role="button" aria-disabled="true" style='margin-top: 25px;'>Get Started Now!</a>
 
                                 {% if messages %}
                                     <div class="messages">
@@ -244,7 +225,7 @@
                             <a href="/howitworks">How it Works</a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; SparkScientific 2016. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; SparkScientific 2018. All Rights Reserved</p>
                 </div>
             </div>
         </div>

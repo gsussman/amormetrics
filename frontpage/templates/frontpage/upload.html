@@ -1,0 +1,12 @@
+{% extends 'frontpage/base.html' %}
+
+{% block content %}
+<div style="margin-top: 100px;">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+</div>
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+{% endblock %}

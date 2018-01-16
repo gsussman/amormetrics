@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_SECRET_KEY", "pk_YOUR_TEST_PUBLIC_KEY")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "pk_YOUR_TEST_SECRET_KEY")
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'frontpage',
     'signup',
+    'formtools',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -65,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -123,3 +129,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
