@@ -70,47 +70,33 @@ def model_form_upload(request):
             religion = form2.getlist('religion')
             a.save()
             for x in ages:
-                print x
                 y = Age.objects.get(age=x)
                 a.age.add(y)
                 a.save()
-                print a.age
             for x in gender:
-                print x
                 y = Gender.objects.get(gender=x)
                 a.gender.add(y)
                 a.save()
-                print a.gender
             for x in ethnicity:
-                print x
                 y = Ethnicity.objects.get(ethnicity=x)
                 a.ethnicity.add(y)
                 a.save()
-                print a.ethnicity
             for x in education:
-                print x
                 y = Education.objects.get(education=x)
                 a.education.add(y)
                 a.save()
-                print a.education
             for x in income:
-                print x
                 y = Income.objects.get(income=x)
                 a.income.add(y)
                 a.save()
-                print a.income
             for x in religion:
-                print x
                 y = Religion.objects.get(religion=x)
                 a.religion.add(y)
                 a.save()
-                print a.religion
             for f in request.FILES.getlist('image'):
                 b = Image(name=name, email=email, image=f)
-                print b
                 b.save()
                 a.images.add(b)
-                print a.images
             a.save()
             messages.success(request, 'Something seems to have gone wrong. We will be in touch shortly to make sure you can make your search') 
             return HttpResponseRedirect('/')
@@ -122,7 +108,6 @@ def model_form_upload(request):
         if request.GET:
             id = request.GET['id']
             request.session['package'] = id
-            print id
         form = ImageForm()
         return render(request, 'frontpage/preferences.html', {
         'form': form
