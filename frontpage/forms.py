@@ -1,5 +1,5 @@
 from django import forms
-from models import Image
+from frontpage.models import Image
 
 FAVORITE_COLORS_CHOICES = (
     ('blue', 'Blue'),
