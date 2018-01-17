@@ -56,7 +56,6 @@ def model_form_upload(request):
         for key, values in request.FILES.lists():
             print(key, values)
         if form.is_valid():
-            print '4'
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             profile = form.cleaned_data['profile']
@@ -107,7 +106,6 @@ def model_form_upload(request):
                 a.save()
                 print a.religion
             for f in request.FILES.getlist('image'):
-                print 'start'
                 b = Image(name=name, email=email, image=f)
                 print b
                 b.save()
@@ -117,13 +115,11 @@ def model_form_upload(request):
             messages.success(request, 'Something seems to have gone wrong. We will be in touch shortly to make sure you can make your search') 
             return HttpResponseRedirect('/')
         else:
-            print 'form not valid'
             return render(request, 'frontpage/preferences.html', {
             'form': form
             })
     else:
         if request.GET:
-            print 'its a get request'
             id = request.GET['id']
             request.session['package'] = id
             print id
