@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
 from frontpage.forms import ImageForm, FileFieldForm
 from django.views.generic.edit import FormView
-from models import Image, ProfileInfo, Age, Education, Ethnicity, Gender, Income, Religion
+from frontpage.models import Image, ProfileInfo, Age, Education, Ethnicity, Gender, Income, Religion
 from amoranalytics import settings
 
 # Create your views here.
