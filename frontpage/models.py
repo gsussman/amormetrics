@@ -63,7 +63,7 @@ class Religion(models.Model):
         
 class ProfileInfo(models.Model):
     images = models.ManyToManyField(Image)
-    texts = models.TextField()
+    texts = models.TextField(null=True, blank=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     age = models.ManyToManyField(Age)
@@ -71,6 +71,8 @@ class ProfileInfo(models.Model):
     ethnicity = models.ManyToManyField(Ethnicity)
     education = models.ManyToManyField(Education)
     income = models.ManyToManyField(Income)
+    religion = models.ManyToManyField(Religion)
+    package = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.name

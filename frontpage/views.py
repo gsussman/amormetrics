@@ -5,7 +5,7 @@ from django.contrib import messages
 from formtools.wizard.views import SessionWizardView
 from forms import ImageForm, FileFieldForm
 from django.views.generic.edit import FormView
-from models import Image, ProfileInfo, Age
+from models import Image, ProfileInfo, Age, Education, Ethnicity, Gender, Income, Religion
 from amoranalytics import settings
 
 # Create your views here.
@@ -63,12 +63,12 @@ def model_form_upload(request):
             a = ProfileInfo(name=name, email=email, texts=profile)
             a.save()
             ages = form2.getlist('age')
-            a.gender = form2.getlist('gender')
-            a.ethnicity = form2.getlist('ethnicity')
-            a.education = form2.getlist('schoollevel')
-            a.income = form2.getlist('income')
+            gender = form2.getlist('gender')
+            ethnicity = form2.getlist('ethnicity')
+            education = form2.getlist('schoollevel')
+            income = form2.getlist('income')
             a.package = form2.getlist('package')
-            a.religion = form2.getlist('religion')
+            religion = form2.getlist('religion')
             a.save()
             for x in ages:
                 print x
@@ -76,6 +76,36 @@ def model_form_upload(request):
                 a.age.add(y)
                 a.save()
                 print a.age
+            for x in gender:
+                print x
+                y = Gender.objects.get(gender=x)
+                a.gender.add(y)
+                a.save()
+                print a.gender
+            for x in ethnicity:
+                print x
+                y = Ethnicity.objects.get(ethnicity=x)
+                a.ethnicity.add(y)
+                a.save()
+                print a.ethnicity
+            for x in education:
+                print x
+                y = Education.objects.get(education=x)
+                a.education.add(y)
+                a.save()
+                print a.education
+            for x in income:
+                print x
+                y = Income.objects.get(income=x)
+                a.income.add(y)
+                a.save()
+                print a.income
+            for x in religion:
+                print x
+                y = Religion.objects.get(religion=x)
+                a.religion.add(y)
+                a.save()
+                print a.religion
             for f in request.FILES.getlist('image'):
                 print 'start'
                 b = Image(name=name, email=email, image=f)
@@ -84,7 +114,8 @@ def model_form_upload(request):
                 a.images.add(b)
                 print a.images
             a.save()
-            return HttpResponseRedirect('/payment/')
+            messages.success(request, 'Something seems to have gone wrong. We will be in touch shortly to make sure you can make your search') 
+            return HttpResponseRedirect('/')
         else:
             print 'form not valid'
             return render(request, 'frontpage/preferences.html', {
