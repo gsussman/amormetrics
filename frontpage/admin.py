@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 # Register your models here.
-from models import Image, ProfileInfo, Age, Ethnicity, Income, Gender, Education, Religion
+from frontpage.models import Image, ProfileInfo, Age, Ethnicity, Income, Gender, Education, Religion
 
 class ImageAdmin(admin.ModelAdmin):
     pass
